@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Style Transfer</title>
+</head>
+<body>
+    <h1>Upload Content and Style Images</h1>
+
+    <form action = "/process_choice" method = "POST"> 
+        <label for = "dropdown">Choose a style!</label>
+        <select id = "dropdown" name = "options">
+            <option value = "option1">Option 1</option>
+            <option value = "option2">Option 2</option>
+            <option value = "option3">Option 3</option>
+        </select>
+        <br><br>
+        <button type = "submit">Select Style</button>
+    </form>
+
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <label for="content_image">Content Image:</label>
+        <input type="file" name="content_image"><br><br>
+        
+        <button type="submit">Style Image</button>
+    </form>
+
+    {% if styled_image %}
+        <h2>Styled Image</h2>
+        <img src="{{ styled_image }}" alt="Styled Image">
+    {% endif %}
+</body>
+</html>
